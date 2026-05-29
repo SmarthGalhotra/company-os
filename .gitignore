@@ -1,0 +1,9 @@
+# The OS is portable; the data is not. Never commit company data.
+CONTEXT/*
+!CONTEXT/README.md
+!CONTEXT/company.example.md
+
+# Local/agent runtime
+.env
+*.local
+runs/
