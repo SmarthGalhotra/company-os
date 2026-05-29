@@ -10,6 +10,7 @@ them. This table is the optimal "what can I do" lookup.
 | Workflow | Trigger | What it does | Spec |
 |----------|---------|--------------|------|
 | Weekly update | Weekly / manual | Compose KPI + shipped + customer signal into the update; draft, gate, learn | [WORKFLOWS/weekly-update.md](WORKFLOWS/weekly-update.md) |
+| Call analysis | New file in `CONTEXT/calls/inbox/` | Analyze a call, send tips internally, update the playbook, self-improve | [WORKFLOWS/call-analysis.md](WORKFLOWS/call-analysis.md) |
 
 ## Skills (composable units of know-how)
 
@@ -21,6 +22,7 @@ them. This table is the optimal "what can I do" lookup.
 | 1on1-prep | Build a brief before an accelerator/team 1-on-1; capture follow-ups after | [SKILLS/1on1-prep.md](SKILLS/1on1-prep.md) |
 | deck-builder | Draft a deck outline from company context | [SKILLS/deck-builder.md](SKILLS/deck-builder.md) |
 | two-sentence-pitch | Write/sharpen the "what is it + why interesting" description | [SKILLS/two-sentence-pitch.md](SKILLS/two-sentence-pitch.md) |
+| call-analyzer | Analyze a call YAML and return concrete next-call improvements | [SKILLS/call-analyzer/SKILL.md](SKILLS/call-analyzer/SKILL.md) |
 
 ## Tools (deterministic actions — contracts the agent calls)
 
@@ -29,6 +31,7 @@ them. This table is the optimal "what can I do" lookup.
 | trello | Read/move/create cards | [TOOLS/trello.md](TOOLS/trello.md) |
 | gdrive | Read/write docs in the company Drive | [TOOLS/gdrive.md](TOOLS/gdrive.md) |
 | kpi-sheet | Read rows/columns from the KPI sheet | [TOOLS/kpi-sheet.md](TOOLS/kpi-sheet.md) |
+| notify | Send tips/messages internally via Slack or email | [TOOLS/notify.md](TOOLS/notify.md) |
 
 ## How to extend (the self-extending pattern)
 

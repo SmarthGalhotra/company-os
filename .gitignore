@@ -3,7 +3,21 @@ CONTEXT/*
 !CONTEXT/README.md
 !CONTEXT/company.example.md
 
+# Call-analysis add-on: track the scaffolding, ignore the actual call data.
+!CONTEXT/calls/
+CONTEXT/calls/*
+!CONTEXT/calls/README.md
+!CONTEXT/calls/playbook.md
+!CONTEXT/calls/.processed
+!CONTEXT/calls/inbox/
+!CONTEXT/calls/analyzed/
+CONTEXT/calls/inbox/*
+!CONTEXT/calls/inbox/.gitkeep
+CONTEXT/calls/analyzed/*
+!CONTEXT/calls/analyzed/.gitkeep
+
 # Local/agent runtime
 .env
 *.local
+.claude/settings.local.json
 runs/
