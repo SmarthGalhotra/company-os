@@ -21,3 +21,6 @@ CONTEXT/calls/analyzed/*
 *.local
 .claude/settings.local.json
 runs/
+
+# Local editor config
+.obsidian/

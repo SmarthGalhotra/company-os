@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Company OS — Executive Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5f1e8; --card:#fffdf7; --ink:#191c22; --muted:#585d66;
+    --navy:#16314f; --navy-2:#0e2236; --amber:#bf8a2c; --amber-soft:#e9d9b3;
+    --line:#ddd5c4; --line-strong:#c7bda6;
+    --sans:"Spline Sans",-apple-system,system-ui,sans-serif;
+    --serif:"Fraunces",Georgia,serif;
+    --maxw:980px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 12% -5%,#fbf8f0 0,transparent 42%);
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  a{color:var(--navy);text-decoration:none}
+
+  /* ---- masthead ---- */
+  header.top{padding:64px 0 30px;border-bottom:3px solid var(--navy)}
+  .kicker{font:600 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5.4vw,58px);line-height:1.04;letter-spacing:-.01em;margin:0 0 18px;color:var(--navy-2)}
+  h1 em{font-style:italic;color:var(--amber)}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 26px;font-size:13px;color:var(--muted);letter-spacing:.02em;margin-top:8px}
+  .meta b{color:var(--ink);font-weight:600}
+
+  /* ---- governing thought ---- */
+  .thesis{margin:38px 0 8px;padding:30px 34px;background:var(--navy);color:#f3ede0;border-radius:3px;
+    box-shadow:0 18px 40px -28px rgba(14,34,54,.7)}
+  .thesis .lbl{font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--amber-soft);margin-bottom:12px}
+  .thesis p{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.6vw,26px);line-height:1.4;margin:0}
+  .thesis p strong{color:#fff;font-weight:600}
+
+  /* ---- sections ---- */
+  section{padding:46px 0;border-bottom:1px solid var(--line)}
+  .secnum{font-family:var(--serif);font-style:italic;color:var(--amber);font-size:15px}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(23px,3.1vw,31px);line-height:1.12;letter-spacing:-.01em;
+    color:var(--navy-2);margin:6px 0 18px}
+  h3{font-family:var(--sans);font-weight:600;font-size:16px;letter-spacing:.01em;margin:26px 0 6px;color:var(--navy)}
+  p{margin:0 0 16px;max-width:66ch}
+  .lead{font-size:18.5px}
+  strong{font-weight:600}
+  .pull{color:var(--navy);border-left:3px solid var(--amber);padding-left:16px;font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.45}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px 34px;margin-top:22px}
+  .point{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:3px;padding:20px 22px}
+  .point h4{font:600 14px/1.3 var(--sans);letter-spacing:.02em;margin:0 0 7px;color:var(--navy)}
+  .point p{font-size:15px;color:#3a3e46;margin:0;max-width:none}
+  .point .big{font-family:var(--serif);font-size:30px;font-weight:500;color:var(--amber);display:block;line-height:1;margin-bottom:6px}
+
+  /* ---- exhibits ---- */
+  figure.exhibit{margin:30px 0 6px;background:var(--card);border:1px solid var(--line-strong);border-radius:4px;overflow:hidden}
+  .exhibit .head{padding:16px 22px 12px;border-bottom:1px solid var(--line)}
+  .exhibit .tag{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+  .exhibit .ttl{font-family:var(--serif);font-size:18px;color:var(--navy-2);margin-top:6px}
+  .exhibit .body{padding:20px 22px 8px}
+  .exhibit svg{width:100%;height:auto;display:block}
+  figcaption{font-size:12.5px;color:var(--muted);padding:4px 22px 18px;font-style:italic}
+
+  ul.tight{margin:6px 0 16px;padding-left:0;list-style:none;max-width:66ch}
+  ul.tight li{position:relative;padding-left:24px;margin-bottom:9px;font-size:16px}
+  ul.tight li::before{content:"";position:absolute;left:2px;top:11px;width:8px;height:8px;background:var(--amber);transform:rotate(45deg)}
+
+  /* glossary */
+  .gloss{display:grid;grid-template-columns:1fr 1fr;gap:14px 32px;margin-top:14px}
+  .gloss div{font-size:15px;border-top:1px solid var(--line);padding-top:10px}
+  .gloss b{font-family:var(--sans);font-weight:600;color:var(--navy);display:block}
+  .gloss span{color:#3a3e46}
+
+  footer{padding:34px 0 70px;color:var(--muted);font-size:13px}
+  footer .rule{height:3px;background:var(--navy);margin-bottom:18px}
+
+  /* svg helpers */
+  .sv-box{fill:#fffdf7;stroke:#c7bda6;stroke-width:1.5}
+  .sv-navy{fill:#16314f}
+  .sv-navy-t{fill:#f3ede0;font-family:"Spline Sans",sans-serif}
+  .sv-t{fill:#1c2128;font-family:"Spline Sans",sans-serif}
+  .sv-mut{fill:#6b7079;font-family:"Spline Sans",sans-serif}
+  .sv-amber{fill:#bf8a2c}
+  .sv-arrow{stroke:#16314f;stroke-width:2;fill:none}
+  .sv-dash{stroke:#bf8a2c;stroke-width:2;fill:none;stroke-dasharray:6 5}
+
+  /* entrance */
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media(max-width:760px){
+    .cols,.gloss{grid-template-columns:1fr}
+    header.top{padding:42px 0 24px}
+  }
+  @media print{body{background:#fff}.thesis{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top reveal">
+    <p class="kicker">Executive Briefing · Internal &amp; Investor Use</p>
+    <h1>Running the company as a <em>system</em>, not a stack of tools</h1>
+    <div class="meta">
+      <span>Prepared for <b>[Company Name]</b> leadership</span>
+      <span>Author: <b>Chief of Staff</b></span>
+      <span>Subject: <b>The Company OS</b></span>
+    </div>
+  </header>
+
+  <div class="thesis reveal" style="animation-delay:.08s">
+    <div class="lbl">The argument in one breath</div>
+    <p>Most companies bolt AI onto the way they already work. We did the opposite. We made AI the <strong>operating layer the company runs on</strong> — a small set of self-correcting loops that capture our own work as it happens, grade it against our standards, and improve without us. The result is a company that gets sharper every week and can be run by a lean team rather than a large one.</p>
+  </div>
+
+  <section class="reveal" style="animation-delay:.12s">
+    <span class="secnum">i.</span>
+    <h2>The shift: from doing the work to capturing it</h2>
+    <p class="lead">A traditional organization is an <strong>open loop</strong>. A decision is made, the work is done, and everyone moves on. The lessons live in people's heads, in scattered messages, in a deck nobody reopens — and most of them are lost.</p>
+    <p>The change we made is to treat every important activity as a <strong>closed loop</strong>: the work is recorded, measured against a clear standard, and fed back so the process updates itself. One rule governs everything else — <span class="pull">if it isn't recorded, it didn't happen to the system.</span></p>
+
+    <figure class="exhibit">
+      <div class="head"><span class="tag">Exhibit 1</span><div class="ttl">An open loop loses its lessons; a closed loop keeps and compounds them</div></div>
+      <div class="body">
+        <svg viewBox="0 0 860 270" role="img" aria-label="Open loop versus closed loop diagram">
+          <text x="0" y="22" class="sv-mut" font-size="12" letter-spacing="2" style="text-transform:uppercase">Before — Open loop</text>
+          <rect x="0" y="36" width="150" height="48" rx="3" class="sv-box"/><text x="75" y="65" text-anchor="middle" class="sv-t" font-size="14">Decide</text>
+          <rect x="200" y="36" width="150" height="48" rx="3" class="sv-box"/><text x="275" y="65" text-anchor="middle" class="sv-t" font-size="14">Act</text>
+          <rect x="400" y="36" width="170" height="48" rx="3" class="sv-box" style="stroke-dasharray:5 4"/><text x="485" y="60" text-anchor="middle" class="sv-mut" font-size="13">Move on</text><text x="485" y="76" text-anchor="middle" class="sv-mut" font-size="11">(lesson lost)</text>
+          <path class="sv-arrow" d="M150 60 H196" marker-end="url(#ah)"/>
+          <path class="sv-arrow" d="M350 60 H396" marker-end="url(#ah)"/>
+
+          <text x="0" y="150" class="sv-mut" font-size="12" letter-spacing="2" style="text-transform:uppercase">After — Closed loop</text>
+          <rect x="0" y="164" width="138" height="46" rx="3" class="sv-box"/><text x="69" y="192" text-anchor="middle" class="sv-t" font-size="13.5">Sense</text>
+          <rect x="178" y="164" width="138" height="46" rx="3" class="sv-box"/><text x="247" y="187" text-anchor="middle" class="sv-t" font-size="13.5">Decide</text><text x="247" y="201" text-anchor="middle" class="sv-mut" font-size="10.5">policy / rules</text>
+          <rect x="356" y="164" width="138" height="46" rx="3" class="sv-box"/><text x="425" y="187" text-anchor="middle" class="sv-t" font-size="13.5">Act</text><text x="425" y="201" text-anchor="middle" class="sv-mut" font-size="10.5">tools</text>
+          <rect x="534" y="164" width="138" height="46" rx="3" class="sv-box"/><text x="603" y="187" text-anchor="middle" class="sv-t" font-size="13.5">Check</text><text x="603" y="201" text-anchor="middle" class="sv-mut" font-size="10.5">quality gate</text>
+          <rect x="712" y="164" width="138" height="46" rx="3" class="sv-navy"/><text x="781" y="192" text-anchor="middle" class="sv-navy-t" font-size="13.5">Learn</text>
+          <path class="sv-arrow" d="M138 187 H174" marker-end="url(#ah)"/>
+          <path class="sv-arrow" d="M316 187 H352" marker-end="url(#ah)"/>
+          <path class="sv-arrow" d="M494 187 H530" marker-end="url(#ah)"/>
+          <path class="sv-arrow" d="M672 187 H708" marker-end="url(#ah)"/>
+          <path class="sv-dash" d="M781 210 V238 H69 V214" marker-end="url(#ahA)"/>
+          <text x="425" y="256" text-anchor="middle" class="sv-amber" font-size="11.5" font-style="italic">the system updates its own rules and improves the next run</text>
+          <defs>
+            <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#16314f"/></marker>
+            <marker id="ahA" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#bf8a2c"/></marker>
+          </defs>
+        </svg>
+      </div>
+      <figcaption>Each loop has five parts — sense, decide, act, check, learn — and the learning step is what makes it compound rather than merely repeat.</figcaption>
+    </figure>
+  </section>
+
+  <section class="reveal">
+    <span class="secnum">ii.</span>
+    <h2>What we built: an engine kept separate from the fuel</h2>
+    <p class="lead">The Company OS is deliberately split into two parts that we never mix.</p>
+    <p>The <strong>OS</strong> is the know-how — the repeatable skills, the workflows, and the rules for what the system may do on its own versus what needs a human's sign-off. It is written in plain text, version-controlled, and carries <strong>no company data</strong>. The company's information — calls, metrics, notes — is the <strong>fuel</strong>, and it stays private.</p>
+    <p>Keeping them apart buys two things at once: the data stays protected, and the operating model becomes <strong>portable</strong> — it can be lifted into another company without dragging any sensitive information along. Humans sit at the edge of this system, where judgment and relationships live, rather than acting as relays passing information up and down a hierarchy.</p>
+
+    <figure class="exhibit">
+      <div class="head"><span class="tag">Exhibit 2</span><div class="ttl">The OS is the portable engine; company data is the private fuel</div></div>
+      <div class="body">
+        <svg viewBox="0 0 860 250" role="img" aria-label="Engine and fuel architecture">
+          <rect x="20" y="40" width="330" height="170" rx="4" class="sv-box"/>
+          <text x="40" y="68" class="sv-amber" font-size="12" letter-spacing="2" style="text-transform:uppercase">The OS — the engine</text>
+          <text x="40" y="92" class="sv-t" font-size="13.5">· Skills (repeatable know-how)</text>
+          <text x="40" y="116" class="sv-t" font-size="13.5">· Workflows (the closed loops)</text>
+          <text x="40" y="140" class="sv-t" font-size="13.5">· Policy (auto vs. human sign-off)</text>
+          <text x="40" y="178" class="sv-mut" font-size="12.5" font-style="italic">Version-controlled · carries no data</text>
+          <text x="40" y="196" class="sv-navy" font-size="12.5" font-weight="600">Leaves with you — fully portable</text>
+
+          <rect x="510" y="40" width="330" height="170" rx="4" class="sv-navy"/>
+          <text x="530" y="68" class="sv-navy-t" font-size="12" letter-spacing="2" style="text-transform:uppercase" opacity=".8">Company data — the fuel</text>
+          <text x="530" y="92" class="sv-navy-t" font-size="13.5">· Call recordings &amp; transcripts</text>
+          <text x="530" y="116" class="sv-navy-t" font-size="13.5">· KPIs, updates, customer notes</text>
+          <text x="530" y="140" class="sv-navy-t" font-size="13.5">· The running playbook</text>
+          <text x="530" y="186" class="sv-navy-t" font-size="12.5" font-style="italic" opacity=".85">Private · stays where you keep it</text>
+
+          <path class="sv-arrow" d="M352 110 H506" marker-end="url(#ah2)"/>
+          <text x="430" y="100" text-anchor="middle" class="sv-mut" font-size="12">reads</text>
+          <path class="sv-dash" d="M506 150 H354" marker-end="url(#ah2A)"/>
+          <text x="430" y="172" text-anchor="middle" class="sv-amber" font-size="12">writes artifacts back</text>
+          <defs>
+            <marker id="ah2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#16314f"/></marker>
+            <marker id="ah2A" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#bf8a2c"/></marker>
+          </defs>
+        </svg>
+      </div>
+      <figcaption>The same engine can be pointed at a different company's fuel — which is why this operating model is reusable, not a one-off.</figcaption>
+    </figure>
+  </section>
+
+  <section class="reveal">
+    <span class="secnum">iii.</span>
+    <h2>Proof point: a coaching loop that runs itself every week</h2>
+    <p class="lead">The first live loop is weekly call coaching — small, concrete, and a template for every function that follows.</p>
+    <p>After a sales or discovery call, the recording is exported as a single file containing the transcript and an external tool's feedback. The system reads it, scores the conversation against <strong>our own playbook</strong>, and returns a short list of specific fixes for the next call. Critically, each run compares the call against recent ones, so a weakness that keeps reappearing is flagged and counted rather than quietly repeated.</p>
+    <p>The measure of success is not "did it produce tips" — it is whether the <strong>count of recurring weaknesses falls over time</strong>. That is the loop doing its job. It runs on a schedule, unattended.</p>
+
+    <figure class="exhibit">
+      <div class="head"><span class="tag">Exhibit 3</span><div class="ttl">From a recorded call to a sharper next call — automatically</div></div>
+      <div class="body">
+        <svg viewBox="0 0 860 230" role="img" aria-label="Weekly call coaching loop">
+          <rect x="10" y="60" width="150" height="58" rx="3" class="sv-box"/><text x="85" y="85" text-anchor="middle" class="sv-t" font-size="13">Call recorded</text><text x="85" y="103" text-anchor="middle" class="sv-mut" font-size="11">file dropped in</text>
+          <rect x="205" y="60" width="160" height="58" rx="3" class="sv-box"/><text x="285" y="85" text-anchor="middle" class="sv-t" font-size="13">System analyses</text><text x="285" y="103" text-anchor="middle" class="sv-mut" font-size="11">vs. our playbook</text>
+          <rect x="410" y="60" width="170" height="58" rx="3" class="sv-navy"/><text x="495" y="85" text-anchor="middle" class="sv-navy-t" font-size="13">Tips + playbook</text><text x="495" y="103" text-anchor="middle" class="sv-navy-t" font-size="11" opacity=".85">updated</text>
+          <rect x="625" y="60" width="160" height="58" rx="3" class="sv-box"/><text x="705" y="85" text-anchor="middle" class="sv-t" font-size="13">Better next call</text>
+          <path class="sv-arrow" d="M160 89 H201" marker-end="url(#ah3)"/>
+          <path class="sv-arrow" d="M365 89 H406" marker-end="url(#ah3)"/>
+          <path class="sv-arrow" d="M580 89 H621" marker-end="url(#ah3)"/>
+          <path class="sv-dash" d="M705 118 V160 H285 V122" marker-end="url(#ah3A)"/>
+          <text x="430" y="180" text-anchor="middle" class="sv-amber" font-size="12" font-style="italic">recurring weaknesses are tracked — and trend down</text>
+          <defs>
+            <marker id="ah3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#16314f"/></marker>
+            <marker id="ah3A" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#bf8a2c"/></marker>
+          </defs>
+        </svg>
+      </div>
+      <figcaption>The same shape — drop input, judge against a standard, return action, learn — is how every other function will be automated.</figcaption>
+    </figure>
+  </section>
+
+  <section class="reveal">
+    <span class="secnum">iv.</span>
+    <h2>Why it matters to the business</h2>
+    <div class="cols">
+      <div class="point"><h4>Leaner by design</h4><p>One person supported by the system covers work that previously needed a team. Headcount becomes a choice, not a prerequisite for growth.</p></div>
+      <div class="point"><h4>Faster decisions</h4><p>Removing the hand-offs between people removes the delay. The company's speed is set by how fast information flows, and the loops keep it flowing.</p></div>
+      <div class="point"><h4>Knowledge compounds</h4><p>Expertise is captured as it happens instead of walking out the door. Every week the system is a little better than the last.</p></div>
+      <div class="point"><h4>Portable advantage</h4><p>Because the engine holds no data, the entire operating model can be stood up at another company in days — a durable, reusable asset.</p></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <span class="secnum">v.</span>
+    <h2>Where this goes next</h2>
+    <p>The plan is not a single big system but the same loop applied function by function — weekly updates, customer calls, KPI monitoring, fundraising prep — each added with the pattern already proven above. In parallel, the loops move up an automation ladder:</p>
+    <ul class="tight">
+      <li><strong>Manual</strong> — a person runs the skill by hand to confirm the output is right.</li>
+      <li><strong>Assisted</strong> — the system drafts; a person approves anything that leaves the company.</li>
+      <li><strong>Scheduled</strong> — the loop runs on a fixed cadence without prompting.</li>
+      <li><strong>Unattended</strong> — it runs in the cloud on schedule, with humans reviewing only the exceptions.</li>
+    </ul>
+    <p class="pull">The goal is a company that improves while we sleep, with people spending their time on judgment and relationships rather than relays and rollups.</p>
+  </section>
+
+  <section class="reveal">
+    <span class="secnum">vi.</span>
+    <h2>Plain-language key terms</h2>
+    <div class="gloss">
+      <div><b>Closed loop</b><span>A process that records its own results and uses them to improve itself, instead of starting from scratch each time.</span></div>
+      <div><b>Skill</b><span>A written, reusable instruction set the system follows to do one job well — like a trained employee's standard procedure.</span></div>
+      <div><b>Workflow</b><span>A closed loop wired together end to end: where the input comes from, what is allowed, and how it learns.</span></div>
+      <div><b>Legible / queryable</b><span>The company's work is captured in a form the system can read and answer questions about.</span></div>
+      <div><b>Playbook</b><span>The living record of what good looks like for us, updated automatically as we learn.</span></div>
+      <div><b>DRI</b><span>Directly responsible individual — one named person accountable for an outcome, not a committee.</span></div>
+    </div>
+  </section>
+
+  <footer class="reveal">
+    <div class="rule"></div>
+    <p>Prepared as an internal and investor-facing briefing for <b>[Company Name]</b>. The operating model described here is documented in full in the accompanying repository. Replace bracketed placeholders before distribution.</p>
+  </footer>
+
+</div>
+</body>
+</html>
