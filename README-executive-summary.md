@@ -75,4 +75,4 @@ The same loop, applied function by function — weekly updates, customer calls, 
 
 ---
 
-*A polished, visual version of this summary is available as `company-os-executive-summary.html` (open in a browser, or publish via GitHub Pages). Replace bracketed placeholders before distribution.*
+*A polished, visual version of this summary is published via GitHub Pages at <https://smarthgalhotra.github.io/company-os/> (source: `index.html`). Replace bracketed placeholders before distribution.*
