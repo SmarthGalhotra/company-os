@@ -1,4 +1,4 @@
-# Company OS
+# [Company OS]([url](https://smarthgalhotra.github.io/company-os/))
 
 A portable, data-free operating layer for running a company through AI. Clone it,
 point it at a new company's data, and the workflows come with you.
